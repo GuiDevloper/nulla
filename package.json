@@ -1,0 +1,15 @@
+{
+  "name": "nulla",
+  "version": "0.2.0",
+  "description": "Nullstack CLI fed by Nulla-chan powers and will",
+  "author": "GuiDevloper",
+  "license": "MIT",
+  "bin": {
+    "nulla": "./index.js"
+  },
+  "keywords": [
+    "nullstack",
+    "element",
+    "plugin"
+  ]
+}
