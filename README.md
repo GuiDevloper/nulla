@@ -15,6 +15,11 @@ Nulla can understand a series of commands, which currently are:
 ```sh
 npx nulla start # start webpack dev server watching files
 npx nulla build # build nullstack project for production
+
+# install & add element plugin to index.js using Yarn
+npx nulla add nullstack-vueable
+# the same, but using 'npm install'
+npx nulla add nullstack-vueable -n
 ```
 
 You can also install it globally for the future:

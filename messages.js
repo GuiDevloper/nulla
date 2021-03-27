@@ -5,8 +5,14 @@ lang = (lang === 'pt-BR' || lang === 'en-US')
   : 'en-US';
 
 const message = ({
-  'pt-BR': 'Eita, digite um comando que eu conheça!',
-  'en-US': 'Hey, type a command I know!'
+  'pt-BR': {
+    unknown: 'Eita, digite um comando que eu conheça!',
+    alreadyInstalled: 'Hm, este já foi instalado!'
+  },
+  'en-US': {
+    unknown: 'Hey, type a command I know!',
+    alreadyInstalled: 'Wait, already installed!'
+  }
 })[lang];
 
 module.exports = message;
