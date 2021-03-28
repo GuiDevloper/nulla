@@ -20,6 +20,7 @@ npx nulla build # build nullstack project for production
 npx nulla add nullstack-vueable
 # the same, but using 'npm install'
 npx nulla add nullstack-vueable -n
+npx nulla -v # shows Nulla version
 ```
 
 You can also install it globally for the future:
