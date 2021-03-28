@@ -3,8 +3,8 @@ const { spawn } = require('child_process');
 const args = process.argv.slice(2);
 const startCommand = /^win/.test(process.platform) ? 'npx.cmd' : 'npx';
 
-function showExit(message) {
-  console.log(message);
+function showExit(...message) {
+  console.log(...message);
   process.exit(0);
 }
 

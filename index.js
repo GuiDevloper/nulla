@@ -9,6 +9,11 @@ const {
 } = require('./modules');
 const { add } = require('./add');
 
+if (args.includes('-v')) {
+  const version = require('./package.json').version;
+  showExit(message.version, version);
+}
+
 if (!Object.keys(commands).includes(args[0])) {
   showExit(message.unknown);
 }
