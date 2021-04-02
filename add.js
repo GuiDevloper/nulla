@@ -1,10 +1,11 @@
-const { showExit, message } = require('./modules');
+const Nulla = require('./modules');
+const { message } = Nulla;
 
 function add(args) {
   const fs = require('fs');
   const path = require('path');
   if (!args[1] || args[1].indexOf('able') === -1) {
-    return showExit(message.unknown);
+    return Nulla.showExit(message.unknown);
   }
 
   const indexPath = path.join(process.cwd(), "index.js");
@@ -14,7 +15,7 @@ function add(args) {
   );
 
   if (content.indexOf(args[1]) > -1) {
-    return showExit(message.alreadyInstalled);
+    return Nulla.showExit(message.alreadyInstalled);
   }
 
   const useIdx = content.indexOf('Nullstack.use');
