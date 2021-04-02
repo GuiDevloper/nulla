@@ -1,6 +1,6 @@
 {
   "name": "nulla",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Nullstack CLI fed by Nulla-chan powers and will",
   "author": "GuiDevloper",
   "license": "MIT",
@@ -10,5 +10,11 @@
   "keywords": [
     "nullstack",
     "cli"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest --testTimeout=10000"
+  }
 }
