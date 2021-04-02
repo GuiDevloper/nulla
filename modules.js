@@ -1,34 +1,32 @@
-const message = require('./messages');
-const { spawn } = require('child_process');
-const args = process.argv.slice(2);
-const startCommand = /^win/.test(process.platform) ? 'npx.cmd' : 'npx';
+const child = require('child_process');
+const Nulla = {};
+Nulla.message = require('./messages');
+Nulla.args = Nulla.args || process.argv.slice(2);
 
-function showExit(...message) {
+Nulla.showExit = function(...message) {
   console.log(...message);
   process.exit(0);
 }
 
 const webpackCommand = 'webpack --config node_modules/nullstack/webpack.config.js';
-const commands = {
-  start: webpackCommand + ' --mode=development --watch',
-  build: webpackCommand + ' --mode=production',
-  add: `${args.includes('-n') ? 'npm install' : 'yarn add'} ${args[1]} -D`
+Nulla.commands = () => {
+  const { args } = Nulla;
+  return {
+    start: webpackCommand + ' --mode=development --watch',
+    build: webpackCommand + ' --mode=production',
+    add: `${args.includes('-n') ? 'npm install' : 'yarn add'} ${args[1]} -D`
+  }
 };
 
-function run() {
-  const pawn = spawn(
+Nulla.run = function() {
+  const startCommand = /^win/.test(process.platform) ? 'npx.cmd' : 'npx';
+  const pawn = child.spawn(
     startCommand,
-    commands[args[0]].split(' '),
+    Nulla.commands()[Nulla.args[0]].split(' '),
     { stdio: 'inherit' }
   );
-  pawn.on('error', showExit);
+  pawn.on('error', Nulla.showExit);
   pawn.on('close', () => process.exit(0));
 }
 
-module.exports = {
-  showExit,
-  commands,
-  args,
-  run,
-  message
-};
+module.exports = Nulla;

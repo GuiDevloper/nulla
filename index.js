@@ -14,7 +14,7 @@ if (args.includes('-v')) {
   showExit(message.version, version);
 }
 
-if (!Object.keys(commands).includes(args[0])) {
+if (!Object.keys(commands()).includes(args[0])) {
   showExit(message.unknown);
 }
 
