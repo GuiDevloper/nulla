@@ -14,6 +14,7 @@ Nulla can understand a series of commands, which currently are:
 
 ```sh
 npx nulla -v # shows Nulla version
+npx nulla help # shows help information
 
 npx nulla start # start webpack dev server watching files
 npx nulla build # build nullstack project for production
