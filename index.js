@@ -14,6 +14,10 @@ if (args.includes('-v')) {
   showExit(message.version, version);
 }
 
+if (args[0] === 'help') {
+  showExit(message.help);
+}
+
 if (!Object.keys(commands()).includes(args[0])) {
   showExit(message.unknown);
 }
