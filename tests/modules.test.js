@@ -1,4 +1,4 @@
-const Nulla = require('../modules');
+const Nulla = require('../src/modules');
 const child = require('child_process');
 
 describe('modules', () => {

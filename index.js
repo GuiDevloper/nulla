@@ -6,8 +6,8 @@ const {
   args,
   run,
   message
-} = require('./modules');
-const { add } = require('./add');
+} = require('./src/modules');
+const { add } = require('./src/add');
 
 if (args.includes('-v')) {
   const version = require('./package.json').version;

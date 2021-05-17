@@ -1,6 +1,6 @@
-const { add } = require('../add');
-const modules = require('../modules');
-const message = require('../messages');
+const { add } = require('../src/add');
+const modules = require('../src/modules');
+const message = require('../src/messages');
 const fs = require('fs');
 const path = require('path');
 
