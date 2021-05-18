@@ -8,6 +8,7 @@ const {
   message
 } = require('./src/modules');
 const { add } = require('./src/add');
+const { deploy } = require('./src/deploy');
 
 if (args.includes('-v')) {
   const version = require('./package.json').version;
@@ -16,6 +17,10 @@ if (args.includes('-v')) {
 
 if (args[0] === 'help') {
   showExit(message.help);
+}
+
+if (args[0] === 'deploy') {
+  return deploy(args[1]);
 }
 
 if (!Object.keys(commands()).includes(args[0])) {
