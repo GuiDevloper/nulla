@@ -34,7 +34,7 @@ Deploy.vercel = function() {
   } catch {}
   ['api/nullstack.js', 'vercel.json'].forEach(copyFile);
 
-  runCLI('--confirm', Nulla.osCLI('vercel'), 'inherit');
+  runCLI('--confirm --prod', Nulla.osCLI('vercel'), 'inherit');
   fs.renameSync('./_package.json', './package.json');
 
   rmDir('./.production');

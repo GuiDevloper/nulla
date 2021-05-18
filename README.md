@@ -24,6 +24,10 @@ npx nulla add nullstack-vueable
 
 # the same, but using 'npm install'
 npx nulla add nullstack-vueable -n
+
+# build & deploy project to vercel locally
+# (vercel cli logged on is required)
+npx nulla deploy vercel
 ```
 
 You can also install it globally for the future:

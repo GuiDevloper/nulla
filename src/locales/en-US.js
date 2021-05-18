@@ -15,6 +15,7 @@ module.exports = {
   build                     Build nullstack project for production
   add <pluginable-name>     Install & add element plugin to index.js using Yarn
   add <pluginable-name> -n  The same as above, but using 'npm install'
+  deploy vercel             Build & deploy project to Vercel (Vercel CLI required)
 
   See you later!`
 }
