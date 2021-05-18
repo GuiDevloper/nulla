@@ -18,8 +18,10 @@ Nulla.commands = () => {
   }
 };
 
+Nulla.osCLI = (cli) => /^win/.test(process.platform) ? `${cli}.cmd` : cli;
+
 Nulla.run = function() {
-  const startCommand = /^win/.test(process.platform) ? 'npx.cmd' : 'npx';
+  const startCommand = Nulla.osCLI('npx');
   const pawn = child.spawn(
     startCommand,
     Nulla.commands()[Nulla.args[0]].split(' '),
