@@ -17,5 +17,6 @@ module.exports = {
   add <pluginable-name> -n  The same as above, but using 'npm install'
   deploy vercel             Build & deploy project to Vercel (Vercel CLI required)
 
-  See you later!`
+  See you later!`,
+  ymlCreated: 'CI file to be pushed was generated in '
 }

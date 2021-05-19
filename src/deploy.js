@@ -16,7 +16,13 @@ function runCLI(args, cli, stdio = 'pipe') {
 
 function copyFile(myFile) {
   const myPath = (file) => path.join(__dirname, `/deployFiles/vercel/${file}`);
-  fs.copyFileSync(myPath(myFile), path.join(process.cwd(), myFile));
+  const thisPath = (other) => path.join(process.cwd(), other || '');
+  if (!fs.existsSync(myFile)) {
+    const newDir = myFile.substring(0, myFile.lastIndexOf('/'));
+    fs.mkdirSync(path.join('./', newDir), { recursive: true });
+    fs.writeFileSync(myFile, '');
+  }
+  fs.copyFileSync(myPath(myFile), thisPath(myFile));
 }
 
 function rmDir(dir) {
@@ -73,6 +79,11 @@ Deploy.vercel = function(args) {
 }
 
 Deploy.deploy = function(args) {
+  if (args[1] === '--yml') {
+    const ymlPath = '.github/workflows/main.yml';
+    copyFile(ymlPath);
+    Nulla.showExit(`${Nulla.message.ymlCreated} "${ymlPath}"`);
+  }
   if (args[1] === 'vercel') return Deploy.vercel(args);
   Nulla.showExit(Nulla.message.unknown);
 }
