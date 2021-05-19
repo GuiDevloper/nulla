@@ -30,8 +30,8 @@ function createDeployBranch() {
   runCLI('checkout vercel-deploy', Nulla.osCLI('git'), 'inherit');
 }
 
-function yarnBuild(isCD) {
-  runCLI(isCD ? 'ci' : '', Nulla.osCLI('yarn'), 'inherit');
+function yarnBuild() {
+  runCLI('', Nulla.osCLI('yarn'), 'inherit');
   runCLI('build', Nulla.osCLI('yarn'), 'inherit');
 }
 
@@ -46,7 +46,7 @@ function prepareVercelFiles() {
 Deploy.vercel = function(args) {
   const isCD = args[2] === '--cd';
   if (isCD) createDeployBranch();
-  yarnBuild(isCD);
+  yarnBuild();
   prepareVercelFiles();
 
   if (isCD) {
