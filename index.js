@@ -20,7 +20,7 @@ if (args[0] === 'help') {
 }
 
 if (args[0] === 'deploy') {
-  return deploy(args[1]);
+  return deploy(args);
 }
 
 if (!Object.keys(commands()).includes(args[0])) {
