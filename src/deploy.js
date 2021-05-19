@@ -50,16 +50,17 @@ Deploy.vercel = function(args) {
   prepareVercelFiles();
 
   if (isCD) {
-    runCLI('-rf ./node_modules .gitignore package-lock.json', 'rm', 'inherit');
+    runCLI('-rf ./node_modules .gitignore _package.json', 'rm', 'inherit');
     [
       'add . -f',
       'config --global user.name "NullstackDeployer"',
       'config --global user.email "nullstack@deployer.ci"',
-      'commit -m "DeployVercel"',
+      'commit -m DeployVercel',
       'push -u origin vercel-deploy -f'
     ].forEach(cmd => runCLI(cmd, 'git', 'inherit'))
   } else {
     runCLI('--confirm --prod', Nulla.osCLI('vercel'), 'inherit');
+    fs.renameSync('./_package.json', './package.json');
     rmDir('./.production');
     const apiFiles = fs.readdirSync('./api');
     if (apiFiles.length === 1) {
@@ -69,7 +70,6 @@ Deploy.vercel = function(args) {
     }
     rmDir('./vercel.json');
   }
-  fs.renameSync('./_package.json', './package.json');
 }
 
 Deploy.deploy = function(args) {
