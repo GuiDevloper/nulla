@@ -53,9 +53,9 @@ Deploy.vercel = function(args) {
     runCLI('-rf ./node_modules .gitignore package-lock.json', 'rm', 'inherit');
     [
       'add . -f',
-      'config --global user.name "Nullstack Deployer"',
+      'config --global user.name "NullstackDeployer"',
       'config --global user.email "nullstack@deployer.ci"',
-      'commit -m "Deploy Vercel"',
+      'commit -m "DeployVercel"',
       'push -u origin vercel-deploy -f'
     ].forEach(cmd => runCLI(cmd, 'git', 'inherit'))
   } else {
