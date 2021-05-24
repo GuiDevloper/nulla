@@ -15,8 +15,13 @@ module.exports = {
   build                     Build nullstack project for production
   add <pluginable-name>     Install & add element plugin to index.js using Yarn
   add <pluginable-name> -n  The same as above, but using 'npm install'
+
+  new-ci vercel             Generates deploy automator file for Github
+  new-ci heroku             The same as above, but for Heroku
+
   deploy vercel             Build & deploy project to Vercel (Vercel CLI required)
+  deploy vercel --cd        Build project in Git to be used by own Vercel CI/CD
 
   See you later!`,
-  ymlCreated: 'CI file to be pushed was generated in '
+  ymlCreated: 'CI file to be pushed was generated in'
 }
