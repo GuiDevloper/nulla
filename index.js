@@ -7,8 +7,6 @@ const {
   run,
   message
 } = require('./src/modules');
-const { add } = require('./src/add');
-const { deploy } = require('./src/deploy');
 
 if (args.includes('-v')) {
   const version = require('./package.json').version;
@@ -20,7 +18,13 @@ if (args[0] === 'help') {
 }
 
 if (args[0] === 'deploy') {
+  const { deploy } = require('./src/deploy');
   return deploy(args);
+}
+
+if (args[0] === 'new-ci') {
+  const { newCI } = require('./src/new-ci');
+  return newCI(args);
 }
 
 if (!Object.keys(commands()).includes(args[0])) {
@@ -28,6 +32,7 @@ if (!Object.keys(commands()).includes(args[0])) {
 }
 
 if (args[0] === 'add') {
+  const { add } = require('./src/add');
   add(args);
 }
 run();
