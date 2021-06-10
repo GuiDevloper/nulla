@@ -17,7 +17,8 @@ describe('modules', () => {
     Nulla.args = ['add', 'vueable'];
     process = {
       platform: platform || 'mint',
-      exit: jest.fn()
+      exit: jest.fn(),
+      cwd: process.cwd
     };
   }
 
@@ -54,13 +55,13 @@ describe('modules', () => {
       { stdio: 'inherit' }
     );
   });
-  
+
   test("run() installs with npm if -n is passed", () => {
-    const spawn = mockSpawn();
+    mockSpawn();
     mockProcess();
     Nulla.run();
     expect(Nulla.commands().add.indexOf('yarn') > -1).toBeTruthy();
-    
+
     Nulla.args[2] = '-n';
     Nulla.run();
     expect(Nulla.commands().add.indexOf('npm') > -1).toBeTruthy();
