@@ -36,7 +36,7 @@ npx nulla deploy vercel
 
 # Build project in Git to be used by own Vercel CI/CD
 # (is good practice to use a fixed version)
-npx nulla@0.7.1 deploy vercel --cd
+npx nulla@0.7.2 deploy vercel --cd
 ```
 
 You can also install it globally for the future:

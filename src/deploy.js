@@ -36,7 +36,7 @@ function prepareVercelFiles() {
     fs.mkdirSync('./api');
   } catch {}
   ['api/nullstack.js', 'vercel.json'].forEach(file => {
-    Nulla.copyFile('vercel', file);
+    Nulla.copyFile(file, 'vercel');
   });
 }
 
