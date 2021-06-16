@@ -1,7 +1,7 @@
 {
   "name": "nulla",
-  "version": "0.7.3",
-  "description": "Nullstack CLI fed by Nulla-chan powers and will",
+  "version": "0.7.4",
+  "description": "CLI for Nullstack fed by Nulla-chan powers and will",
   "author": "GuiDevloper",
   "license": "MIT",
   "bin": {
