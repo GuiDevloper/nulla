@@ -2,7 +2,13 @@
 
 ![Nullstack's waifu Nulla-chan](https://raw.githubusercontent.com/nullstack/nullstack.github.io/7e47095fb480fc4ae62089501e782a836eae764d/public/nullachan.png)
 
-Nullstack CLI fed by Nulla-chan powers and will
+CLI for Nullstack fed by Nulla-chan powers and will.
+
+<div align="right">
+  <a href="./README.BR.md">
+    <img src="./docs/btn-br.png" alt="go to pt-BR version" width="180px">
+  </a>
+</div>
 
 ## Usage
 
