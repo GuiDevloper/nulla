@@ -58,4 +58,10 @@ com ela instalada, você pode executar diretamente, como:
 nulla start
 ```
 
+## Tutoriais
+
+ - [Vercel Deploy](./docs/pt-BR/deploy-vercel.md)
+ - [Heroku Deploy](./docs/pt-BR/deploy-heroku.md)
+ - [Netlify Deploy](./docs/pt-BR/deploy-netlify.md)
+
 ## [to-do](https://github.com/GuiDevloper/nulla/issues/1)
