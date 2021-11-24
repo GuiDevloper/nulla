@@ -2,6 +2,61 @@
 
 O Vercel é um serviço de hospedagem muito testado e se encaixa no recurso serverless do Nullstack.
 
+Desde a v0.11.5, o Nullstack já suporta a maneira como o Vercel faz *deploy* de aplicativos.
+
+Então, você pode simplesmente seguir o guia padrão com detalhes [aqui](https://github.com/Mortaro/nullstack-vercel) e abaixo
+
+Crie um `api/nullstack.js` para exportar o servidor do aplicativo em modo produção (*production*)
+
+```js
+import application from '../.production/server'
+
+export default application.server;
+```
+
+Adicione o seguinte `vercel.json` à pasta raiz para redirecionar todas as requisições para o nullstack:
+
+```json
+{
+  "version": 2,
+  "functions": {
+    "api/nullstack.js": {
+      "includeFiles": "**/**"
+    }
+  },
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "(.*)",
+      "dest": "api/nullstack.js"
+    }
+  ]
+}
+```
+
+Renomeie `build` para `vercel-build` nos `scripts` do package.json
+
+```json
+  "scripts": {
+    "start": "npx nullstack start",
+    "vercel-build": "npx nullstack build --mode=ssr"
+  }
+```
+
+E pronto! Pode enviar para um repositório e [integrar o Vercel](https://vercel.com/docs#deploy-an-existing-project) ou realizar deploy localmente com o [Vercel CLI](https://docs.netlify.com/cli/get-started).
+
+### Configurando Variáveis de Ambiente
+
+Por padrão, o Nullstack precisa de variáveis como o nome do projeto e domínio.
+
+Variáveis podem ser configuradas ao importar um app do Github, ou na página de configurações do projeto, saiba mais na [documentação do Vercel](https://vercel.com/docs/environment-variables).
+
+## Guia Obsoleto
+
+Para compatibilidade, manteremos os tutoriais antigos aqui:
+
 Tendo seu projeto em um repositório online, execute no terminal aberto em sua pasta:
 
 ```sh
@@ -12,7 +67,7 @@ Ele gera a pasta **.github** que o [Github usa](https://docs.github.com/pt/actio
 
 Enviando a nova pasta via commit, o Github executará outro comando da Nulla, movendo seu código para um novo branch chamado `vercel-deploy`, contruindo no estado perfeito para que a [Integração do Vercel com Github](https://vercel.com/docs#deploy-an-existing-project) seja conectada a ele.
 
-## Deploy Manual
+### Deploy Manual
 
 Se por algum motivo você quiser apenas fazer deploy manualmente do ambiente local, então há outras etapas, dê uma olhada na [documentação da CLI do Vercel](https://docs.netlify.com/cli/get-started/#run-builds-locally) para se preparar e execute no terminal aberto na pasta do projeto:
 
@@ -28,13 +83,7 @@ A cada mudança a ser entregue, você precisará executar este comando de deploy
 
 > Dica: ele também pode ser usado como um script no **package.json**
 
-## Configurando Variáveis de Ambiente
-
-Por padrão, o Nullstack precisa de variáveis como o nome do projeto e domínio.
-
-Variáveis podem ser configuradas ao importar um app do Github, ou na página de configurações do projeto, saiba mais na [documentação do Vercel](https://vercel.com/docs/environment-variables).
-
-## Ressalvas
+### Ressalvas
 
 Por padrão, Vercel tenta fazer build & deploy de cada branch, mas apenas `vercel-deploy` tem o estado para ser entregue.
 
