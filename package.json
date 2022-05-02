@@ -1,6 +1,6 @@
 {
   "name": "nulla",
-  "version": "0.8.5",
+  "version": "0.9.2",
   "description": "CLI for Nullstack fed by Nulla-chan powers and will",
   "author": "GuiDevloper",
   "license": "MIT",
@@ -8,6 +8,7 @@
     "type": "git",
     "url": "https://github.com/GuiDevloper/nulla"
   },
+  "main": "./dist/index.js",
   "bin": {
     "nulla": "./dist/index.js"
   },
@@ -19,15 +20,14 @@
     "cli"
   ],
   "devDependencies": {
-    "parcel": "2.5.0"
-  },
-  "dependencies": {
+    "parcel": "2.5.0",
     "commander": "8.3.0"
   },
   "scripts": {
     "test": "jest --testTimeout=10000",
     "start": "parcel watch",
-    "build": "parcel build"
+    "build": "parcel build",
+    "prepublishOnly": "npm run build"
   },
   "targets": {
     "index": {
