@@ -11,8 +11,6 @@ module.exports = {
   Actions:
 
   -v                        Shows my installed version
-  start                     Start webpack dev server watching files
-  build                     Build nullstack project for production
   add <pluginable-name>     Install & add element plugin to index.js using Yarn
   add <pluginable-name> -n  The same as above, but using 'npm install'
 
@@ -23,5 +21,6 @@ module.exports = {
   deploy vercel --cd        Build project in Git to be used by own Vercel CI/CD
 
   See you later!`,
-  ymlCreated: 'CI file to be pushed was generated in'
+  ymlCreated: 'CI file to be pushed was generated in',
+  deprecatedCmd: 'Deprecated command!'
 }

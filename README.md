@@ -22,9 +22,6 @@ Nulla can understand a series of commands, which currently are:
 npx nulla -v # shows Nulla version
 npx nulla help # shows help information
 
-npx nulla start # start webpack dev server watching files
-npx nulla build # build nullstack project for production
-
 # install & add element plugin to index.js using Yarn
 npx nulla add nullstack-vueable
 
@@ -55,7 +52,7 @@ yarn global add nulla # or, using Yarn
 with it installed, you can directly run, like:
 
 ```sh
-nulla start
+nulla help
 ```
 
 ## Tutorials with Nulla
