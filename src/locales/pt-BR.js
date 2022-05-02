@@ -16,6 +16,6 @@ module.exports = {
   new-ci heroku             O mesmo que acima, mas para Heroku
 
   Te vejo depois!`,
-  ymlCreated: 'Arquivo de CI a ser comitado foi gerado em',
+  ciCreated: 'Arquivo de CI foi gerado em',
   deprecatedCmd: 'Comando obsoleto!'
 }

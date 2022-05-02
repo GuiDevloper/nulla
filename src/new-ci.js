@@ -1,17 +1,33 @@
 const Nulla = require('./modules');
 const CI = {};
 
+const fs = require('fs');
+function prepareCIFiles(host, files) {
+  if (host === 'vercel') {
+    try {
+      fs.mkdirSync('./api');
+    } catch {}
+  }
+  files.forEach(file => {
+    Nulla.copyFile(file, host);
+  });
+}
+
 CI.newCI = function(args) {
   const supported = {
-    vercel: '.github/workflows/main.yml',
-    heroku: 'Procfile'
+    vercel: ['api/nullstack.js', 'vercel.json'],
+    heroku: ['Procfile']
   };
-  const CIPath = supported[args[1]];
-  if (CIPath) {
-    Nulla.copyFile(CIPath, args[1]);
-    Nulla.showExit(`${Nulla.message.ymlCreated} "${CIPath}"`);
-  } else {
-    Nulla.showExit(Nulla.message.unknown);
+  try {
+    const CIPath = supported[args[1]];
+    if (CIPath) {
+      prepareCIFiles(args[1], CIPath);
+      Nulla.showExit(`${Nulla.message.ciCreated} "${CIPath.join(', ')}"`);
+    } else {
+      Nulla.showExit(Nulla.message.unknown);
+    }
+  } catch (e) {
+    console.log(e);
   }
 }
 

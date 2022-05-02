@@ -16,6 +16,6 @@ module.exports = {
   new-ci heroku             The same as above, but for Heroku
 
   See you later!`,
-  ymlCreated: 'CI file to be pushed was generated in',
+  ciCreated: 'CI file was generated in',
   deprecatedCmd: 'Deprecated command!'
 }
