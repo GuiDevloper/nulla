@@ -1,5 +1,8 @@
 node_modules/
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 coverage
 test
+.parcel-cache
+dist/index.js
