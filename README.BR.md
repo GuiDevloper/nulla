@@ -22,12 +22,6 @@ Nulla pode entender uma série de comandos, que atualmente são:
 npx nulla -v # exibe a versão da Nulla
 npx nulla help # exibe informação de ajuda
 
-# instala e adiciona plugin de elemento ao index.js usando Yarn
-npx nulla add nullstack-vueable
-
-# o mesmo, mas usando 'npm install'
-npx nulla add nullstack-vueable -n
-
 # Gera arquivo de automação de deploy para Github
 npx nulla new-ci vercel
 # O mesmo que acima, mas para Heroku

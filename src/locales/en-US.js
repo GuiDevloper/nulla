@@ -11,8 +11,6 @@ module.exports = {
   Actions:
 
   -v                        Shows my installed version
-  add <pluginable-name>     Install & add element plugin to index.js using Yarn
-  add <pluginable-name> -n  The same as above, but using 'npm install'
 
   new-ci vercel             Generates deploy automator file for Github
   new-ci heroku             The same as above, but for Heroku

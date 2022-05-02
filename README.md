@@ -22,12 +22,6 @@ Nulla can understand a series of commands, which currently are:
 npx nulla -v # shows Nulla version
 npx nulla help # shows help information
 
-# install & add element plugin to index.js using Yarn
-npx nulla add nullstack-vueable
-
-# the same, but using 'npm install'
-npx nulla add nullstack-vueable -n
-
 # Generates deploy automator file for Github
 npx nulla new-ci vercel
 # The same as above, but for Heroku

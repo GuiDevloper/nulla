@@ -25,9 +25,4 @@ if (args[0] === 'new-ci') {
   return newCI(args);
 }
 
-if (args[0] === 'add') {
-  const { add } = require('./src/add');
-  add(args);
-}
-
 throw new Error(message.deprecatedCmd);
