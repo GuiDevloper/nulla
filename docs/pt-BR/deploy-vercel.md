@@ -21,7 +21,7 @@ Adicione o seguinte `vercel.json` à pasta raiz para redirecionar todas as requi
   "version": 2,
   "functions": {
     "api/nullstack.js": {
-      "includeFiles": "**/**"
+      "includeFiles": ".production/**"
     }
   },
   "routes": [
@@ -63,16 +63,14 @@ Tendo seu projeto em um repositório online, execute no terminal aberto em sua p
 npx nulla new-ci vercel
 ```
 
-Ele gera a pasta **.github** que o [Github usa](https://docs.github.com/pt/actions/learn-github-actions) para entender como construir o app Nullstack.
-
-Enviando a nova pasta via commit, o Github executará outro comando da Nulla, movendo seu código para um novo branch chamado `vercel-deploy`, contruindo no estado perfeito para que a [Integração do Vercel com Github](https://vercel.com/docs#deploy-an-existing-project) seja conectada a ele.
+Ele gera os arquivos de deploy que o Vercel necessita.
 
 ### Deploy Manual
 
 Se por algum motivo você quiser apenas fazer deploy manualmente do ambiente local, então há outras etapas, dê uma olhada na [documentação da CLI do Vercel](https://docs.netlify.com/cli/get-started/#run-builds-locally) para se preparar e execute no terminal aberto na pasta do projeto:
 
 ```sh
-npx nulla deploy vercel
+vercel dev
 ```
 
 Ele instala dependências (se necessário), executa o seu comando `build` e faz um deploy do Vercel (criando projeto se não existir).
@@ -84,14 +82,6 @@ A cada mudança a ser entregue, você precisará executar este comando de deploy
 > Dica: ele também pode ser usado como um script no **package.json**
 
 ### Ressalvas
-
-Por padrão, Vercel tenta fazer build & deploy de cada branch, mas apenas `vercel-deploy` tem o estado para ser entregue.
-
-Leia [como ignorar uma etapa de construção](https://vercel.com/docs/platform/projects#ignored-build-step) e nesta configuração de projeto defina o seguinte para cancelar cada deploy não proveniente desse branch.
-
-```sh
-bash -c 'if [[ $VERCEL_GIT_COMMIT_REF == "vercel-deploy" ]]; then exit 1; fi'
-```
 
 Atualmente, o Vercel suporta apenas o deploy de apps Nullstack em execução no modo serverless.
 
