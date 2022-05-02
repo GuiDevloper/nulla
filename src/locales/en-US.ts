@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   unknown: 'Ops, type a command I know!',
   alreadyInstalled: 'Wait, already installed!',
   version: 'Hey, take a look at my version:',

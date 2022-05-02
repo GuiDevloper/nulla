@@ -20,7 +20,7 @@ Nulla pode entender uma série de comandos, que atualmente são:
 
 ```sh
 npx nulla -v # exibe a versão da Nulla
-npx nulla help # exibe informação de ajuda
+npx nulla -h # exibe informação de ajuda
 
 # Gera arquivos de deploy
 npx nulla new-ci vercel
@@ -38,7 +38,7 @@ yarn global add nulla # ou, usando Yarn
 com ela instalada, você pode executar diretamente, como:
 
 ```sh
-nulla help
+nulla --help
 ```
 
 ## Tutoriais
