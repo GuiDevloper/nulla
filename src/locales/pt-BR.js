@@ -12,11 +12,8 @@ module.exports = {
 
   -v                        Mostra minha versão instalada
 
-  new-ci vercel             Gera arquivo automatizador de deploy para Github
+  new-ci vercel             Gera arquivos de deploy para Vercel
   new-ci heroku             O mesmo que acima, mas para Heroku
-
-  deploy vercel             Constroi & deploy projeto pra Vercel (necessita Vercel CLI)
-  deploy vercel --cd        Constroi projeto no Git para uso do CI/CD próprio da Vercel
 
   Te vejo depois!`,
   ymlCreated: 'Arquivo de CI a ser comitado foi gerado em',

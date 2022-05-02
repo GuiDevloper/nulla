@@ -22,18 +22,10 @@ Nulla pode entender uma série de comandos, que atualmente são:
 npx nulla -v # exibe a versão da Nulla
 npx nulla help # exibe informação de ajuda
 
-# Gera arquivo de automação de deploy para Github
+# Gera arquivos de deploy
 npx nulla new-ci vercel
 # O mesmo que acima, mas para Heroku
 npx nulla new-ci heroku
-
-# constrói e faz deploy de projeto pra vercel localmente
-# (cli da vercel logada é necessário)
-npx nulla deploy vercel
-
-# Constrói projeto no Git para ser usado pelo próprio CI/CD da Vercel
-# (é uma boa prática usar uma versão fixa)
-npx nulla@0.7.2 deploy vercel --cd
 ```
 
 Você também pode instalá-la globalmente para o futuro:

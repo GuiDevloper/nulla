@@ -15,11 +15,6 @@ if (args[0] === 'help') {
   showExit(message.help);
 }
 
-if (args[0] === 'deploy') {
-  const { deploy } = require('./src/deploy');
-  return deploy(args);
-}
-
 if (args[0] === 'new-ci') {
   const { newCI } = require('./src/new-ci');
   return newCI(args);
