@@ -21,6 +21,7 @@ import { isWriteable } from './helpers/is-writeable'
 import type { PackageManager } from './helpers/get-pkg-manager'
 import fileContentReplacer from './helpers/file-replacer'
 import { contraryLang, currentLang } from '../messages'
+import { distDir } from '../modules'
 
 export class DownloadError extends Error {}
 
@@ -168,7 +169,7 @@ export async function createApp({
     const ignorePath = path.join(root, '.gitignore')
     if (!fs.existsSync(ignorePath)) {
       fs.copyFileSync(
-        path.join(__dirname, 'templates', template, 'gitignore'),
+        path.join(distDir, 'templates', template, 'gitignore'),
         ignorePath
       )
     }
@@ -187,12 +188,12 @@ export async function createApp({
     /**
      * Copy the template files to the target directory.
      */
-     await cpy([
+    await cpy([
       '**',
       `!public/nulla-chan.webp.${contraryLang}`
     ], root, {
       parents: true,
-      cwd: path.join(__dirname, 'templates', template),
+      cwd: path.join(distDir, 'templates', template),
       rename: (name) => {
         switch (name) {
           case '_gitignore':

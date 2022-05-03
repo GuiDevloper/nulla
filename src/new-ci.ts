@@ -1,15 +1,16 @@
+import fs from 'fs'
+import path from 'path'
+import { Argument } from 'commander'
 import { showExit, copyFile } from './modules'
 import Messages from './messages'
-import fs from 'fs'
-import { Argument } from 'commander'
 
 function prepareCIFiles(host, files) {
   if (host === 'vercel') {
     try {
-      fs.mkdirSync('./api')
+      fs.mkdirSync(path.join(process.cwd(), 'api'))
     } catch {}
   }
-  files.forEach(file =>  copyFile(file, host))
+  files.forEach(file => copyFile(file, host))
 }
 
 export function newCI(host) {
