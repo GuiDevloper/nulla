@@ -1,3 +1,5 @@
+import i18nTemplate from './template/en-US'
+
 export default {
   unknown: 'Ops, type a command I know!',
   alreadyInstalled: 'Wait, already installed!',
@@ -17,5 +19,6 @@ export default {
 
   See you later!`,
   ciCreated: 'CI file was generated in',
-  deprecatedCmd: 'Deprecated command!'
+  deprecatedCmd: 'Deprecated command!',
+  i18nTemplate
 }
