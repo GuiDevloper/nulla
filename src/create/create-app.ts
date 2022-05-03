@@ -39,7 +39,7 @@ export async function createApp({
   typescript?: boolean
 }): Promise<void> {
   let repoInfo: RepoInfo | undefined
-  const template = typescript ? 'typescript' : 'default'
+  const template = 'default'
 
   if (example) {
     let repoUrl: URL | undefined
@@ -190,7 +190,10 @@ export async function createApp({
      */
     await cpy([
       '**',
-      `!public/nulla-chan.webp.${contraryLang}`
+      `!public/nulla-chan.webp.${contraryLang}`,
+      `!src/Application.${typescript ? 'jsx' : 'tsx'}`,
+      `!src/Home.${typescript ? 'jsx' : 'tsx'}`,
+      !typescript ? '!tsconfig.json' : ''
     ], root, {
       parents: true,
       cwd: path.join(distDir, 'templates', template),
