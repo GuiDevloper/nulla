@@ -1,4 +1,5 @@
-import { showExit, copyFile, messages } from './modules'
+import { showExit, copyFile } from './modules'
+import Messages from './messages'
 import fs from 'fs'
 import { Argument } from 'commander'
 
@@ -20,9 +21,9 @@ export function newCI(host) {
     const CIPath = supported[host]
     if (CIPath) {
       prepareCIFiles(host, CIPath)
-      showExit(`${messages.ciCreated} "${CIPath.join(', ')}"`)
+      showExit(`${Messages.ciCreated} "${CIPath.join(', ')}"`)
     } else {
-      showExit(messages.unknown)
+      showExit(Messages.unknown)
     }
   } catch (e) {
     console.log(e)

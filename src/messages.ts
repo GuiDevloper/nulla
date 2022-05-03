@@ -6,6 +6,9 @@ lang = (lang === 'pt-BR' || lang === 'en-US')
   ? lang
   : 'en-US'
 
-lang = lang.split('-')[0].toUpperCase()
+export const currentLang = lang
+export const contraryLang = lang.includes('en') ? 'pt-BR' : 'en-US'
 
-export default Locales[lang]
+const locale = lang.split('-')[0].toUpperCase()
+
+export default Locales[locale]

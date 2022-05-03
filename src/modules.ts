@@ -1,7 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import Messages from './messages'
-export const messages = Messages
 
 export function showExit(...message) {
   console.log(...message)
