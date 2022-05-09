@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-export const distDir = path.resolve('../dist')
+export const distDir = path.resolve(__dirname, '../dist')
 
 export function showExit(...message) {
   console.log(...message)
