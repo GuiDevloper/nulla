@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import retry from 'async-retry'
 import chalk from 'chalk'
 import cpy from 'cpy'
 import fs from 'fs'
@@ -143,7 +142,7 @@ export async function createApp({
           )}. This might take a moment.`
         )
         console.log()
-        await retry(() => downloadAndExtractRepo(root, repoInfo2))
+        await downloadAndExtractRepo(root, repoInfo2)
       } else {
         console.log(
           `Downloading files for example ${chalk.cyan(
@@ -151,7 +150,7 @@ export async function createApp({
           )}. This might take a moment.`
         )
         console.log()
-        await retry(() => downloadAndExtractExample(root, example))
+        await downloadAndExtractExample(root, example)
       }
     } catch (reason) {
       function isErrorLike(err: unknown): err is { message: string } {
@@ -169,7 +168,7 @@ export async function createApp({
     const ignorePath = path.join(root, '.gitignore')
     if (!fs.existsSync(ignorePath)) {
       fs.copyFileSync(
-        path.join(distDir, 'templates', template, 'gitignore'),
+        path.join(distDir, 'templates', template, '_gitignore'),
         ignorePath
       )
     }
