@@ -92,7 +92,7 @@ export function downloadAndExtractExample(
   }
 
   return pipeline(
-    got.stream('https://codeload.github.com/GuiDevloper/nullstack-examples/tar.gz/master'),
-    tar.extract({ cwd: root, strip: 3 }, [`nullstack-examples-master/examples/${name}`])
+    got.stream('https://codeload.github.com/GuiDevloper/nullstack-examples/tar.gz/main'),
+    tar.extract({ cwd: root, strip: 3 }, [`nullstack-examples-main/examples/${name}`])
   )
 }
