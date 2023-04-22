@@ -26,6 +26,15 @@ npx nulla -h # exibe informação de ajuda
 npx nulla new-ci vercel
 # O mesmo que acima, mas para Heroku
 npx nulla new-ci heroku
+
+# Cria um novo projeto usando TSX
+npx nulla create --ts
+# Cria um novo projeto baseado em um template/exemplo
+npx nulla create --example active-class-name
+# O mesmo, mas usando qualquer link de repo com um *package.json*
+npx nulla create --example https://github.com/GuiDevloper/nullstack-examples/tree/main/examples/active-class-name
+# Aprenda mais sobre "nulla create" executando:
+npx nulla create -h
 ```
 
 Você também pode instalá-la globalmente para o futuro:
