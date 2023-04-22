@@ -35,6 +35,7 @@ function replaceLangs(content) {
 const files = [
   'package.json', 'README.md', '.env',
   'client.js', 'server.js',
+  'client.ts', 'server.ts',
   'src/Application.jsx', 'src/Home.jsx',
   'src/Application.tsx', 'src/Home.tsx'
 ]

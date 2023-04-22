@@ -1,16 +1,16 @@
-import Nullstack from 'nullstack';
-import './Home.css';
-import Logo from 'nullstack/logo';
+import './Home.css'
+import Nullstack from 'nullstack'
+import Logo from 'nullstack/logo'
 
 class Home extends Nullstack {
 
   prepare({ project, page }) {
-    page.title = `${project.name} - {{i18n_welcome}}`;
-    page.description = `${project.name} {{i18n_madeWith}}`;
+    page.title = `${project.name} - {{i18n_welcome}}`
+    page.description = `${project.name} {{i18n_madeWith}}`
   }
 
   renderLink({ children, href }) {
-    const link = href + '?ref=create-nullstack-app';
+    const link = `${href}?ref=create-nullstack-app`
     return (
       <a href={link} target="_blank" rel="noopener noreferrer">
         {children}
@@ -18,7 +18,7 @@ class Home extends Nullstack {
     )
   }
 
-  render({ project }) {
+  render({ project, greeting }) {
     return (
       <section>
         <article>
@@ -26,11 +26,13 @@ class Home extends Nullstack {
             <Logo height={60} light />
           </Link>
           <h1> {project.name} </h1>
+          <h1> {greeting} </h1>
           <p>
             {{i18n_gettingStarted}}
             <Link href="{{PROJECT_SRC}}">
               {{i18n_srcFolder}}
-            </Link>.
+            </Link>
+            .
           </p>
           <span>
             {{i18n_hintExtension}}
@@ -68,7 +70,10 @@ class Home extends Nullstack {
         </article>
         <aside>
           <Link href="{{i18n_nulla.link}}">
-            <img src="/nulla-chan.webp" alt="{{i18n_nulla.altImage}}" />
+            <img
+              src="/nulla-chan.webp"
+              alt="{{i18n_nulla.altImage}}"
+            />
           </Link>
         </aside>
       </section>
@@ -77,4 +82,4 @@ class Home extends Nullstack {
 
 }
 
-export default Home;
+export default Home

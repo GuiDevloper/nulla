@@ -188,7 +188,9 @@ export async function createApp({
       '**',
       `!public/nulla-chan.webp.${contraryLang}`,
       `!src/Application.${typescript ? 'jsx' : 'tsx'}`,
-      `!src/Home.${typescript ? 'jsx' : 'tsx'}`
+      `!src/Home.${typescript ? 'jsx' : 'tsx'}`,
+      `!client.${typescript ? 'js' : 'ts'}`,
+      `!server.${typescript ? 'js' : 'ts'}`
     ];
     if (!typescript) cpyOptions.push('!tsconfig.json')
     /**
@@ -200,7 +202,9 @@ export async function createApp({
       rename: (name) => {
         switch (name) {
           case '_gitignore':
-          case '_env': {
+          case '_env':
+          case '_env.example':
+          case '_eslintrc.js': {
             return name.replace('_', '.')
           }
           case `nulla-chan.webp.${currentLang}`: {

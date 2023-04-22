@@ -10,7 +10,7 @@ export default {
   "links": [
     [
       "https://nullstack.app/stateless-components",
-      "🎉 Create your first component "
+      "🎉 Create your first component"
     ],
     [
       "https://nullstack.app/routes-and-params",

@@ -1,23 +1,25 @@
-import Nullstack from 'nullstack';
-import Logo from 'nullstack/logo';
-import type { NullstackClientContext } from 'nullstack/types';
-import './Home.css';
+import './Home.css'
+import Nullstack, { NullstackClientContext } from 'nullstack'
+import Logo from 'nullstack/logo'
 
-declare function Link(): typeof Home.prototype.renderLink
+declare const Link: Home['renderLink']
 
-interface HomeProps {
-  route: string
+type HomeProps = Partial<NullstackClientContext> & {
+  greeting: string
+}
+type LinkProps = Partial<HomeProps> & {
+  href: string
 }
 
 class Home extends Nullstack<HomeProps> {
 
-  prepare({ project, page }: NullstackClientContext) {
-    page.title = `${project.name} - {{i18n_welcome}}`;
-    page.description = `${project.name} {{i18n_madeWith}}`;
+  prepare({ project, page }: HomeProps) {
+    page.title = `${project.name} - {{i18n_welcome}}`
+    page.description = `${project.name} {{i18n_madeWith}}`
   }
 
-  renderLink({ children, href }: { children: Element[], href: string }) {
-    const link = href + '?ref=create-nullstack-app';
+  renderLink({ children, href }: LinkProps) {
+    const link = `${href}?ref=create-nullstack-app`
     return (
       <a href={link} target="_blank" rel="noopener noreferrer">
         {children}
@@ -25,7 +27,7 @@ class Home extends Nullstack<HomeProps> {
     )
   }
 
-  render({ project }: NullstackClientContext) {
+  render({ project, greeting }: HomeProps) {
     return (
       <section>
         <article>
@@ -33,11 +35,13 @@ class Home extends Nullstack<HomeProps> {
             <Logo height={60} light />
           </Link>
           <h1> {project.name} </h1>
+          <h1> {greeting} </h1>
           <p>
             {{i18n_gettingStarted}}
             <Link href="{{PROJECT_SRC}}">
               {{i18n_srcFolder}}
-            </Link>.
+            </Link>
+            .
           </p>
           <span>
             {{i18n_hintExtension}}
@@ -75,7 +79,10 @@ class Home extends Nullstack<HomeProps> {
         </article>
         <aside>
           <Link href="{{i18n_nulla.link}}">
-            <img src="/nulla-chan.webp" alt="{{i18n_nulla.altImage}}" />
+            <img
+              src="/nulla-chan.webp"
+              alt="{{i18n_nulla.altImage}}"
+            />
           </Link>
         </aside>
       </section>
@@ -84,4 +91,4 @@ class Home extends Nullstack<HomeProps> {
 
 }
 
-export default Home;
+export default Home

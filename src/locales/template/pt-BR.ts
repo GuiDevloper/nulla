@@ -10,7 +10,7 @@ export default {
   "links": [
     [
       "https://nullstack.app/pt-br/componentes-renderizaveis",
-      "🎉 Crie seu primeiro componente "
+      "🎉 Crie seu primeiro componente"
     ],
     [
       "https://nullstack.app/pt-br/rotas-e-parametros",

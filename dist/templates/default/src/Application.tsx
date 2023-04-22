@@ -1,24 +1,24 @@
-import Nullstack from 'nullstack';
-import type { NullstackClientContext } from 'nullstack/types';
-import './Application.css';
-import Home from './Home';
+import './Application.css'
+import Nullstack, { NullstackClientContext } from 'nullstack'
 
-declare function Head(): typeof Application.prototype.renderHead
+import Home from './Home'
+
+declare const Head: Application['renderHead']
 
 class Application extends Nullstack {
 
   prepare({ page }: NullstackClientContext) {
-    page.locale = '{{PROJECT_LANG}}';
+    page.locale = '{{PROJECT_LANG}}'
   }
 
   renderHead() {
     return (
       <head>
-        <link
-          href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.gstatic.com" rel="preconnect" />
         <link
           href="https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto&display=swap"
-          rel="stylesheet" />
+          rel="stylesheet"
+        />
       </head>
     )
   }
@@ -27,11 +27,11 @@ class Application extends Nullstack {
     return (
       <main>
         <Head />
-        <Home route="/" />
+        <Home route="/" greeting="'Hello World!' - Nulla" />
       </main>
     )
   }
 
 }
 
-export default Application;
+export default Application
