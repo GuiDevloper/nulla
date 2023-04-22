@@ -220,11 +220,11 @@ export async function createApp({
     /**
      * Default dependencies.
      */
-    const dependencies = []
+    const dependencies = ['nullstack']
     /**
      * Default devDependencies.
      */
-    const devDependencies = ['nullstack']
+    const devDependencies = []
     /**
      * Install package.json dependencies if they exist.
      */

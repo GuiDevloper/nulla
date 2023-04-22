@@ -4,8 +4,8 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nullstack": "~0.15.0"
+  "dependencies": {
+    "nullstack": "~0.17.5"
   },
   "scripts": {
     "start": "nullstack start",
