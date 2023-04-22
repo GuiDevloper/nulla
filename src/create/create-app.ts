@@ -184,16 +184,17 @@ export async function createApp({
      * by installing from a template.
      */
     console.log(chalk.bold(`Using ${packageManager}.`))
-    /**
-     * Copy the template files to the target directory.
-     */
-    await cpy([
+    const cpyOptions = [
       '**',
       `!public/nulla-chan.webp.${contraryLang}`,
       `!src/Application.${typescript ? 'jsx' : 'tsx'}`,
-      `!src/Home.${typescript ? 'jsx' : 'tsx'}`,
-      !typescript ? '!tsconfig.json' : ''
-    ], root, {
+      `!src/Home.${typescript ? 'jsx' : 'tsx'}`
+    ];
+    if (!typescript) cpyOptions.push('!tsconfig.json')
+    /**
+     * Copy the template files to the target directory.
+     */
+    await cpy(cpyOptions, root, {
       parents: true,
       cwd: path.join(distDir, 'templates', template),
       rename: (name) => {
