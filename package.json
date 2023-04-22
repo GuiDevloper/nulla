@@ -49,10 +49,10 @@
       "optimize": true,
       "sourceMap": false,
       "source": "index.ts",
-      "context": "node",
-      "engines": {
-        "node": ">=12.22.0"
-      }
+      "context": "node"
     }
+  },
+  "engines": {
+    "node": ">= 12"
   }
 }
