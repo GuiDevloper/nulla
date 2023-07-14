@@ -33,7 +33,7 @@ function replaceLangs(content) {
 };
 
 const files = [
-  'package.json', 'README.md', '.env',
+  'package.json', 'README.md', '.env', '.env.example',
   'client.js', 'server.js',
   'client.ts', 'server.ts',
   'src/Application.jsx', 'src/Home.jsx',
