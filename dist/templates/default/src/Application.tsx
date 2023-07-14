@@ -1,9 +1,9 @@
 import './Application.css'
-import Nullstack, { NullstackClientContext } from 'nullstack'
+import Nullstack, { NullstackClientContext, NullstackNode } from 'nullstack'
 
 import Home from './Home'
 
-declare const Head: Application['renderHead']
+declare function Head(): NullstackNode
 
 class Application extends Nullstack {
 

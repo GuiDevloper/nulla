@@ -1,24 +1,25 @@
 import './Home.css'
-import Nullstack, { NullstackClientContext } from 'nullstack'
+import Nullstack, { NullstackClientContext, NullstackNode } from 'nullstack'
 import Logo from 'nullstack/logo'
 
-declare const Link: Home['renderLink']
+declare function Link(props: LinkProps): NullstackNode
 
-type HomeProps = Partial<NullstackClientContext> & {
+type HomeProps = {
   greeting: string
 }
-type LinkProps = Partial<HomeProps> & {
+
+type LinkProps = {
   href: string
 }
 
 class Home extends Nullstack<HomeProps> {
 
-  prepare({ project, page }: HomeProps) {
+  prepare({ project, page }: NullstackClientContext<HomeProps>) {
     page.title = `${project.name} - {{i18n_welcome}}`
     page.description = `${project.name} {{i18n_madeWith}}`
   }
 
-  renderLink({ children, href }: LinkProps) {
+  renderLink({ children, href }: NullstackClientContext<LinkProps>) {
     const link = `${href}?ref=create-nullstack-app`
     return (
       <a href={link} target="_blank" rel="noopener noreferrer">
@@ -27,7 +28,7 @@ class Home extends Nullstack<HomeProps> {
     )
   }
 
-  render({ project, greeting }: HomeProps) {
+  render({ project, greeting }: NullstackClientContext<HomeProps>) {
     return (
       <section>
         <article>

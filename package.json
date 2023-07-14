@@ -1,6 +1,6 @@
 {
   "name": "nulla",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "description": "CLI for Nullstack fed by Nulla-chan powers and will",
   "author": "GuiDevloper",
   "license": "MIT",
@@ -40,8 +40,7 @@
   "scripts": {
     "test": "jest --testTimeout=10000",
     "start": "parcel watch",
-    "build": "rimraf ./dist/index.js && parcel build",
-    "prepublishOnly": "npm run build"
+    "build": "rimraf ./dist/index.js && parcel build"
   },
   "targets": {
     "index": {

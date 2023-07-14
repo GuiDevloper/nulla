@@ -4,11 +4,11 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "nullstack": "~0.17.5"
+  "devDependencies": {
+    "nullstack": "~0.20.0"
   },
   "scripts": {
-    "start": "nullstack start",
-    "build": "nullstack build"
+    "start": "npx nullstack start",
+    "build": "npx nullstack build"
   }
 }
